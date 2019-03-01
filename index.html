@@ -1,0 +1,93 @@
+<!credit of artistic image: https://pixabay.com/illustrations/background-colorful-abstract-color-1036447/>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Template</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+        $(function() {
+            //my own jQuery/javascript
+            //when the button is clicked
+            $('button').click(function(){
+                //get values and store them as variables
+                var club = $('#club').val();
+                var day = $('#day').val();
+                var color = $('#color').val();
+                var backgroundColor = $('#backgroundColor').val();
+                var note = $('textarea').val();
+                
+                //writes the club's name in a string as a heading and change its color from the input
+                $('#posterh1').html('Come To Our ' + club + ' Club').css('color', color);
+                //writes when the club's meet from the radio input in a string
+                $('#posterh2').html('We meet on ' + day + ' <br> from 3:00 pm to 4:00 pm');
+                $('div').css('background-color', backgroundColor);
+                $('#note').html(note);
+                
+                
+            });
+        
+        });
+    </script>
+
+    <style>
+    h1 {
+        text-align: center;
+        font-size: 50px;
+    }
+    #posterh2 {
+        text-align: center;
+        font-size: 30px;
+    }
+    #heading1 {
+        color: purple;
+        font-size: 50px;
+    }
+    div {
+        text-align: center;
+        width: 900px;
+        height: 800px;
+        margin: 200px;
+        padding-top: 200px;
+    }
+    </style>
+</head>
+
+<body>
+    <h1 id="heading1">Create your own Club Poster Invitation</h1>
+    <h2>Please enter the following information to make your club's poster invitaion</h2>
+    
+    What is your Club's name? <br>
+    <input type="text" id="club" placeholder="Your club's name"> <br><br>
+    On what day of the week does your club meet? <br>
+    
+    <input type="radio" id="day" value="Mondays"> On Mondays 
+    <input type="radio" id="day" value="Tuesdays"> On Tuesdays
+    <input type="radio" id="day" value="Wednesdays"> On Wednesdays
+    <input type="radio" id="day" value="Thursdays"> On Thursdays
+    <input type="radio" id="day" value="Fridays"> On Fridays <br><br>
+    
+    What would you like the color of your poster's heading be? <br>
+    <input type="text" id="color" placeholder="color"> <br><br>
+    
+    What would you like the color of your poster's background be? <br>
+    <input type="text" id="backgroundColor" placeholder="background color"> <br> <br>
+    
+    Please write a note about what you do in your club below:
+    <textarea placeholder="note"></textarea> <br><br>
+    
+    <button>Create Club Poster Invitation</button>
+    <br><br>
+    
+    <div>
+        <br><br>
+        <h1 id="posterh1"></h1> <br><br>
+        <h2 id="posterh2"></h2>
+        <p id="note"></p>
+        <br>
+    </div>
+</body>
+
+</html>
