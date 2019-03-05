@@ -5,106 +5,114 @@
 <head>
     <meta charset="UTF-8">
     <title>jQuery Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Acme|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Luckiest+Guy" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <script>
         $(function() {
             //my own jQuery/javascript
             //when the button is clicked
-            $('button').click(function(){
+            $('#create').click(function() {
                 //get values and store them as variables
                 var club = $('#club').val();
                 var day = $('#day').val();
                 var color = $('#color').val();
+                var font = $('#font').val();
                 var backgroundColor = $('#backgroundColor').val();
                 var note = $('textarea').val();
-                var theme = $('#theme').val();
                 
+
                 //writes the club's name in a string as a heading and change its color from the input
-                $('#posterh1').html('Come To Our ' + club + ' Club').css('color', color);
-                
+                $('#posterh1').html('Come To Our ' + club + ' Club').css({'color': color, 'font-family': font});
+
                 //writes when the club's meet from the radio input in a string
                 $('#posterh2').html('We meet on ' + day + ' <br> from 3:00 pm to 4:00 pm');
                 
+
                 //changes background-color based on the user's input
                 $('div').css('background-color', backgroundColor);
-                
+
                 //writes the note in a paragraph form on the poster
                 $('#note').html(note);
-                
-                //changes the background-image based on the user's choice
-                if (theme == 'artistic') {
-                    $('div').css('background-image', 'artistic.jpg');
-                } else if (theme == 'game-like') {
-                    $('div').css('background-image', 'game-like.jpg');
-                } else if (theme == 'organizational') {
-                    $('div').css('background-image', 'organizational.jpg');
-                }
-                
-                
-                
-            });
-        
+
+            
+                 $('#random').clicked(function(){
+                    var random = ['yellow', 'blue', 'orange', 'green'];
+                    
+                    for(var i=0; i<=random.length; i++){
+                        $(div).css('background-color', random[i]);
+                    }
+                     
+                });
+                });
         });
     </script>
 
     <style>
-    h1 {
-        text-align: center;
-        font-size: 50px;
-    }
-    #posterh2 {
-        text-align: center;
-        font-size: 30px;
-    }
-    #heading1 {
-        color: purple;
-        font-size: 50px;
-    }
-    div {
-        text-align: center;
-        width: 900px;
-        height: 800px;
-        margin: 200px;
-        padding-top: 200px;
-    }
+        body {
+            background-image: linear-gradient(rgba(255,0,0,0.3), rgba(150,0,0,1));    
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 50px;
+        }
+        h2 {
+            font-family: 'Oswald', sans-serif;
+        }
+        #posterh2 {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #heading1 {
+            color: purple;
+            font-size: 50px;
+            font-family: 'Acme', sans-serif;
+        }
+
+        div {
+            text-align: center;
+            width: 900px;
+            height: 600px;
+            margin: 100px;
+            padding-top: 180px;
+        }
     </style>
 </head>
 
 <body>
     <h1 id="heading1">Create your own Club Poster Invitation</h1>
     <h2>Please enter the following information to make your club's poster invitaion</h2>
-    
+
     What is your Club's name? <br>
-    <input type="text" id="club" placeholder="Your club's name"> <br><br>
-    On what day of the week does your club meet? <br>
-    
-    <input type="radio" id="day" value="Mondays"> On Mondays 
+    <input type="text" id="club" placeholder="Your club's name"> <br><br> On what day of the week does your club meet? <br>
+
+    <input type="radio" id="day" value="Mondays"> On Mondays
     <input type="radio" id="day" value="Tuesdays"> On Tuesdays
     <input type="radio" id="day" value="Wednesdays"> On Wednesdays
     <input type="radio" id="day" value="Thursdays"> On Thursdays
     <input type="radio" id="day" value="Fridays"> On Fridays <br><br>
     
     What would you like the color of your poster's heading be? <br>
-    <input type="text" id="color" placeholder="color"> <br><br>
+    <input type="text" id="color" placeholder="color"> <br><br> 
     
-    What would you like the color of your poster's background be? <br>
-    <input type="text" id="backgroundColor" placeholder="background color"> <br> <br>
+    What do you want the font of your heading to be? <br>
+    <input type="radio" id="font" value="Kaushan Script"> Kaushan Script
+    <input type="radio" id="font" value="Luckiest Guy"> Luckiest Guy
+    <input type="radio" id="font" value="Oswald"> Oswald <br><br>
     
-    If you don't want a plain background color, please choose a theme for a more interesting background images below <br>
-    Theme: 
-    <br>
-    <input type="radio" id="theme" value="artistic"> artistic (for clubs that are art related)
-    <input type="radio" id="theme" value="game-like"> game-like (for clubs that are game-like related)
-    <input type="radio" id="theme" value="organizational"> organizational (for clubs that take care of organizing events)
-    <br><br>
+    What would you like the color of the background be? <br>
+    <input type="text" id="backgroundColor" placeholder="background color"> 
+    <button id="random">Choose a random background color</button> <br><br>
     
-    Please write a note about what you do in your club below:
+    Please write a note about what you do in your club below: <br>
     <textarea placeholder="note"></textarea> <br><br>
-    
-    <button>Create Club Poster Invitation</button>
+
+    <button id="create">Create Club Poster Invitation</button>
     <br><br>
-    
+
     <div>
         <br><br>
         <h1 id="posterh1"></h1> <br><br>
