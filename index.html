@@ -18,13 +18,29 @@
                 var color = $('#color').val();
                 var backgroundColor = $('#backgroundColor').val();
                 var note = $('textarea').val();
+                var theme = $('#theme').val();
                 
                 //writes the club's name in a string as a heading and change its color from the input
                 $('#posterh1').html('Come To Our ' + club + ' Club').css('color', color);
+                
                 //writes when the club's meet from the radio input in a string
                 $('#posterh2').html('We meet on ' + day + ' <br> from 3:00 pm to 4:00 pm');
+                
+                //changes background-color based on the user's input
                 $('div').css('background-color', backgroundColor);
+                
+                //writes the note in a paragraph form on the poster
                 $('#note').html(note);
+                
+                //changes the background-image based on the user's choice
+                if (theme == 'artistic') {
+                    $('div').css('background-image', 'artistic.jpg');
+                } else if (theme == 'game-like') {
+                    $('div').css('background-image', 'game-like.jpg');
+                } else if (theme == 'organizational') {
+                    $('div').css('background-image', 'organizational.jpg');
+                }
+                
                 
                 
             });
@@ -74,6 +90,14 @@
     
     What would you like the color of your poster's background be? <br>
     <input type="text" id="backgroundColor" placeholder="background color"> <br> <br>
+    
+    If you don't want a plain background color, please choose a theme for a more interesting background images below <br>
+    Theme: 
+    <br>
+    <input type="radio" id="theme" value="artistic"> artistic (for clubs that are art related)
+    <input type="radio" id="theme" value="game-like"> game-like (for clubs that are game-like related)
+    <input type="radio" id="theme" value="organizational"> organizational (for clubs that take care of organizing events)
+    <br><br>
     
     Please write a note about what you do in your club below:
     <textarea placeholder="note"></textarea> <br><br>
