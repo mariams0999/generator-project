@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>jQuery Template</title>
+    <title>Generator Project</title>
     <link href="https://fonts.googleapis.com/css?family=Acme|Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Luckiest+Guy" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -36,12 +36,12 @@
                 //writes the note in a paragraph form on the poster
                 $('#note').html(note);
 
-            
-                 $('#random').clicked(function(){
+                //when the randomize button is clicked, the for loop will iterated through the array and it will set up the background-color randomly
+                 $('#random').click(function(){
                     var random = ['yellow', 'blue', 'orange', 'green'];
                     
-                    for(var i=0; i<=random.length; i++){
-                        $(div).css('background-color', random[i]);
+                    for(var i=0; i <= Math.floor(Math.random(random.length)); i++){
+                        $('div').css('background-color', random[i]);
                     }
                      
                 });
@@ -51,7 +51,8 @@
 
     <style>
         body {
-            background-image: linear-gradient(rgba(255,0,0,0.3), rgba(150,0,0,1));    
+            background-image: url("bg.jpg");
+            background-size: cover;
         }
         
         h1 {
